@@ -1,0 +1,19 @@
+{
+  "name": "infracloud",
+  "version": "1.0.0",
+  "description": "URL shortner api in nodejs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manoj Kumawat",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "dotenv": "^12.0.3",
+    "express": "^4.17.2",
+    "express-basic-auth": "^1.2.1",
+    "swagger-ui-express": "^4.3.0",
+    "winston": "^3.4.0"
+  }
+}
