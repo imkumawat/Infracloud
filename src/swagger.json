@@ -1,0 +1,83 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "URL Shortner",
+    "description": "Simple API to short a long url",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Short",
+      "description": "URL shortner"
+    }
+  ],
+  "paths": {
+    "/shorturl": {
+      "post": {
+        "tags": [
+          "Short"
+        ],
+        "summary": "This will generate short url for valid url",
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "longurl"
+                ],
+                "properties": {
+                  "longurl": {
+                    "type": "string",
+                    "default": "https://www.youtube.com/watch?v=uRTNTFPZ4Jk"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Short URL Generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Shortened URL: localhost:5000/MQvKg6B66"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URL format is inccorect",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "URL is Invalid"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
