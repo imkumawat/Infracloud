@@ -86,7 +86,8 @@ __APIs setted with default inputs__
 - Click on __Try it out__
 - Click on __Execute__ 
 - And observe the __Server Response__
-
+- Copy the short url returned in __Server Response__ and paste in new tab and hit enter
+- You will be redirected to original url
 # Running Server in local machine
 
 Installing the dependencies and devDependencies
