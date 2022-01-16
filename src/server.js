@@ -9,9 +9,9 @@ const docs = require('./swagger.json')
 
 const app = express()
 
-//const dbstr = process.env.DB_CONNECTION_STRING || 'mongodb://mongo:27017/infracloud'
+const dbstr = process.env.DB_CONNECTION_STRING || 'mongodb://mongo:27017/infracloud'
 
-const dbstr = 'mongodb://127.0.0.1/infracloud'
+//const dbstr = 'mongodb://127.0.0.1/infracloud'
 mongoose.connect(
     dbstr,
     { useUnifiedTopology: true, useNewUrlParser: true }
