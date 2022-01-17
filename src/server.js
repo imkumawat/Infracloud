@@ -3,15 +3,14 @@ const dotenv = require('dotenv')
 const bodyParser = require("body-parser")
 const mongoose = require('mongoose')
 const log = require('./log/log')
-const basicAuth = require('express-basic-auth')
 const swaggerUI = require('swagger-ui-express')
 const docs = require('./swagger.json')
 
 const app = express()
 
-const dbstr = process.env.DB_CONNECTION_STRING || 'mongodb://mongo:27017/infracloud'
+const dbstr = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1/urlshortner'
 
-//const dbstr = 'mongodb://127.0.0.1/infracloud'
+
 mongoose.connect(
     dbstr,
     { useUnifiedTopology: true, useNewUrlParser: true }
@@ -34,10 +33,7 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('/api-docs', basicAuth({
-    users: { Infracloud: "Infracloud@2022" },
-    challenge: true,
-}), swaggerUI.serve, swaggerUI.setup(docs))
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(docs))
 
 
 const api = require('./route/routes')
