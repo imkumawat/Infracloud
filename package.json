@@ -1,5 +1,5 @@
 {
-  "name": "infracloud",
+  "name": "Short URL",
   "version": "1.0.0",
   "description": "URL shortner api in nodejs",
   "main": "server.js",
