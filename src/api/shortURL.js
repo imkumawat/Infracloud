@@ -29,9 +29,13 @@ async function urlShortner(req, res) {
     const shorturl = baseurl + urlCode
 
     obj = {}
+
+    obj.createdAt = new Date()
     obj.longurl = req.body.longurl
     obj.shorturl = shorturl
     obj.ids = urlCode
+
+
 
     urls.create(obj)
         .then(doc => {

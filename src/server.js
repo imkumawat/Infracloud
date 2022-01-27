@@ -6,6 +6,8 @@ const log = require('./log/log')
 const swaggerUI = require('swagger-ui-express')
 const docs = require('./swagger.json')
 
+const urls = require("./model/model")
+
 const app = express()
 
 const dbstr = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1/urlshortner'
@@ -21,6 +23,9 @@ const db = mongoose.connection
 db.once('open', () => log.info('connected to the database'))
 
 db.on('error', () => log.error('MongoDB connection error:'))
+
+
+//creating index
 
 
 app.use(bodyParser.json())

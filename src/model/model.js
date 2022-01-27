@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 
 const urls = mongoose.Schema({
+    createdAt: {
+        type: Date,
+        required: true
+    },
+
     longurl: {
         type: String,
         required: true
@@ -19,4 +24,6 @@ const urls = mongoose.Schema({
 
 
 });
+urls.index({ "createdAt": 1 }, { expireAfterSeconds: 3600 })
+
 module.exports = mongoose.model('URLs', urls);
